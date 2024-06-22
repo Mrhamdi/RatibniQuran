@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<meta charset="UTF-8">
+<meta name="description" content="موقع Ratibni Quran لتعليم القرآن الكريم للأطفال بشكل تفاعلي ومبتكر، يتضمن صياغة الآيات القرآنية بشكل صحيح عبر ترتيب أجزائها المبعثرة.">
+<meta name="keywords" content="Ratibni Quran, تعليم القرآن للأطفال, ترتيب الآيات القرآنية, تفاعلي, مبتكر, تعليم إسلامي">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ratibni Quran</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="Navbar-Right-Links-icons.css">
+    
+</head>
+
+<body style="background: #E7F0DC;">
+    <nav class="navbar navbar-expand bg-body py-3">
+        <div class="container-fluid"><a class="navbar-brand d-flex align-items-center" href="#"></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-2">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#" style="font-size: 23px;color: #729763;">رتبني للقرآن</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container" style="margin-top: 61px;">
+        <div class="row">
+            <div class="col-md-12">
+                <section class="position-relative py-4 py-xl-5">
+                    <div class="container">
+                        <div class="row mb-5">
+                            <div class="col-md-8 col-xl-6 text-center mx-auto" id="hd" style="display: block;">
+                                <h2 style="color: #729763;">أبدأ الأن</h2>
+                                <p class="w-lg-50" style="color: #597445;">رتب الآية ترتيب صحيح كما ورد في المصحف الشريف</p>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-md-6 col-xl-4">
+                                <div class="card mb-5">
+                                    <div class="card-body d-flex flex-column align-items-center">
+                                        <form class="text-center" method="post" id="form1" style="display: block;">
+                                            
+                                            <div class="mb-3"><input class="form-control" type="text" id="aya" placeholder="أدخل الأية" style="border-radius: 8px;position: relative;" required>
+                                                <small class="text text-danger" id="mtl" style="display: none;">  هذا الحقل مطلوب *</small>
+                                            </div>
+                                            
+                                            <div class="mb-3"><button class="btn d-block w-100" type="button" onclick="randomAya()" style="background: #729763;color: var(--bs-body-bg);">بعثرة</button></div>
+                                        </form>
+                                    </div>
+                                    <div class="card-body d-flex flex-column align-items-center">
+<form class="text-center" method="post" id="form2" style="display: none;">
+    <div class="alert alert-success" role="alert" id="sc" style="display: none;"><span><strong>صحيح,أحسنت جزاك الله خيرا&nbsp;</strong></span></div>
+    <div class="alert alert-danger" role="alert" id="er" style="display: none;"><span><strong>خطأ,لا تيأس و أعد المحاولة&nbsp;</strong></span></div>
+    <div class="alert alert-danger" role="alert" id="fn" style="display: none;"><span><strong>للأسف,أنتهى عدد المحاولات&nbsp;</strong></span></div>
+    <span id="ayamb">الآية مبعثرة : هنا الأية&nbsp;</span>
+                                            <div class="mb-3"><input class="form-control" type="text" id="aya2" placeholder=" أدخل الآية بالترتيب الصحيح" style="border-radius: 8px;position: relative;margin-top: 29px;">
+                                                <small class="text text-danger" id="mtl2" style="display: none;">  هذا الحقل مطلوب *</small>
+                                            </div>
+                                            <div class="mb-3"></div>
+                                            <div class="mb-3"><button class="btn d-block w-100" id="ch" type="button" style="background: #729763;color: var(--bs-body-bg);">تحقق</button></div>
+                                            <div class="alert alert-info" role="alert"><span><strong id="try">متبقى 3 محاولات</strong></span></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <script src="bootstrap.min.js"></script>
+    <script>
+        function randomizeSentence(sentence) {
+
+    let words = sentence.split(' ');
+
+    
+    words.sort(() => Math.random() - 0.5);
+
+    
+    let randomizedSentence = words.join(' ');
+
+    return randomizedSentence;
+}
+
+
+                function formsh(idd){
+                    document.querySelectorAll("form").forEach(form => {
+                        form.style.display="none";
+                
+                    })
+                    document.getElementById(idd).style.display="block";
+                }
+                formsh("form1")
+                function checkaya(aya,aya2){
+                    return aya==aya2;
+                }
+                function randomAya(){
+
+                    var aya=document.getElementById("aya").value;
+                    
+                    if(aya==""){
+                        document.getElementById("mtl").style.display="block";
+                        return 0;
+                    }
+                    document.getElementById("hd").style.display="none";
+                    formsh("form2")
+                    document.getElementById("ayamb").innerHTML=(" الآية مبعثرة: " )+randomizeSentence(aya);
+                    trynb=3;
+                    document.getElementById("ch").addEventListener('click',function(){
+                    var aya2=document.getElementById("aya2").value;
+                    document.getElementById("mtl2").style.display="none";
+                    if(aya2==""){
+                        document.getElementById("mtl2").style.display="block";
+                        return 0;
+                    }
+                    
+                    trynb--;
+                    if(checkaya(aya,aya2)){
+                        document.getElementById("er").style.display="none";
+                        document.getElementById("sc").style.display="block";
+                        btn=document.getElementById("ch");
+                        btn.textContent="ابدأ من جديد";
+                        btn.id="nw";
+                        document.getElementById("nw").addEventListener('click',function(){
+                    location.reload();
+                    })
+                    }
+                    else if(trynb>0){
+                        document.getElementById("er").style.display="block";
+                        document.getElementById("try").innerHTML=(" متبقى "+trynb+" محاولات" )
+                    }
+                    else{
+                        btn=document.getElementById("ch");
+                        btn.textContent="ابدأ من جديد";
+                        btn.id="nw";
+                        document.getElementById("er").style.display="none";
+                        document.getElementById("fn").style.display="block";
+                        document.getElementById("try").innerHTML=(" متبقى "+trynb+" محاولات" )
+                        document.getElementById("nw").addEventListener('click',function(){
+                    location.reload();
+                    })
+
+                    }
+                    })
+
+
+                   
+                }
+                    </script>
+
+            
+</body>
+
+</html>
