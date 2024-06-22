@@ -10,11 +10,11 @@
 
 ## التثبيت
 
-لا يتطلب التثبيت أي برمجيات للمنصة على الويب. قم بزيارة [Ratibni Quran](https://example.com) لبدء التعلم!
+لا يتطلب التثبيت أي برمجيات للمنصة على الويب. قم بزيارة [Ratibni Quran](https://ratibniquran.onrender.com/) لبدء التعلم!
 
 ## الاستخدام
 
-1. زر [Ratibni Quran](https://example.com).
+1. زر [Ratibni Quran]([https://example.com](https://ratibniquran.onrender.com/)).
 2. اتبع التعليمات على الموقع لبدء ترتيب آيات القرآن.
 3. استمتع بتعلم آيات القرآن بطريقة تفاعلية!
 
